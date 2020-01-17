@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <!-- 控制台输出 -->
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder><pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern></encoder>
+  </appender>
+
+  <appender name="notes" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/export/Logs/spring-cloud/notes.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>/export/Logs/spring-cloud/notes.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <root level="@profile.log.level@">
+    <appender-ref ref="stdout" />
+    <!-- 视情况可要可不要 -->
+    <!--<appender-ref ref="notes" />-->
+  </root>
+
+</configuration>

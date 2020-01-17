@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+eureka:
+  instance:
+    hostname: www.zzy.com
+  client:
+    service-url:
+      #eureka-server的地址
+      defalutZone: http://www.zzy.com:8761/eureka
