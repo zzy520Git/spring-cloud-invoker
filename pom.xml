@@ -29,7 +29,7 @@
     <java.version>1.8</java.version>
     <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <feign.version>1.4.7.RELEASE</feign.version>
+    <feign.version>2.2.1.RELEASE</feign.version>
   </properties>
 
   <dependencies>
@@ -50,8 +50,7 @@
     <!-- 加入feign 更方便的rest客户端-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-feign</artifactId>
-      <version>${feign.version}</version>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
     </dependency>
 
     <dependency>
@@ -75,6 +74,12 @@
         <version>${spring-cloud.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+        <version>${feign.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
