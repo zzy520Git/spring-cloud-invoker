@@ -30,6 +30,7 @@
     <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <feign.version>2.2.1.RELEASE</feign.version>
+    <alibaba.fastjson>1.2.47</alibaba.fastjson>
   </properties>
 
   <dependencies>
@@ -52,6 +53,11 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <optional>true</optional>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
     </dependency>
 
     <!-- 加入feign 更方便的rest客户端-->
@@ -87,6 +93,12 @@
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-openfeign</artifactId>
         <version>${feign.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>${alibaba.fastjson}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
