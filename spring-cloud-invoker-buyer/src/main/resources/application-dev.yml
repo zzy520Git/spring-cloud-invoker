@@ -8,3 +8,11 @@ eureka:
     service-url:
       #eureka-server的地址
       defalutZone: http://www.zzy.com:8761/eureka
+
+zuul:
+  routes:
+    zzy:
+      #该路由下全部转发给eureka-invoker-vender处理
+      path: /zzy/**
+      serviceId: eureka-invoker-vender
+      #url:

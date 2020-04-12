@@ -50,7 +50,8 @@ public class IndexController {
      * @return
      */
     @HystrixCommand(fallbackMethod = "getHystrixResult")
-    @RequestMapping("/result")
+    //@RequestMapping(value = "/result", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/result")
     public Result getResult() {
         //乱码问题
         String forObjectStr = restTemplate.getForObject("http://eureka-provider/provider/obj", String.class);
