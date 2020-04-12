@@ -2,6 +2,7 @@ package notes.mvc.web.buyer.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import notes.common.util.Result;
 import notes.domain.entity.VenderEntity;
@@ -42,6 +43,13 @@ public class IndexController {
         return feignTestClient.invokeProvider();
     }
 
+    /**
+     * HystrixCommand配置较多，详细见官方文档
+     * ignoreExceptions 遇到此异常不执行回退
+     *
+     * @return
+     */
+    @HystrixCommand(fallbackMethod = "getHystrixResult")
     @RequestMapping("/result")
     public Result getResult() {
         //乱码问题
@@ -53,5 +61,9 @@ public class IndexController {
         System.out.println(forObject.getData().getClass());
         System.out.println(forObject.toString());
         return forObject;
+    }
+
+    public Result getHystrixResult() {
+        return Result.errorResult("执行Hystrix回退方法");
     }
 }
